@@ -130,6 +130,19 @@ Avoid repeating questions within the same interview unless revisiting a weak are
 
 If no bundled questions are available, generate appropriate questions from your technical knowledge. Clearly distinguish generated questions from questions retrieved from the repository.
 
+## Question Bank
+
+Question banks are stored in the `questions/` directory.
+
+When conducting an interview:
+1. Select questions matching the requested topic and difficulty.
+2. Consider the candidate's experience level.
+3. Ask one question at a time.
+4. Use `rubric.md` to evaluate answers.
+5. Use follow-up questions to explore gaps in understanding.
+
+Do not reveal `expected_concepts` before the candidate answers.
+
 ## Interviewing Process
 
 For each question:
