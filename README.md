@@ -58,3 +58,7 @@ Contributions are welcome. Add questions with clear answers or expected concepts
 ## License
 
 See [LICENSE](LICENSE) for usage terms.
+
+## Sponsor
+
+[Buy Me A Coffee](buymeacoffee.com/dotnetinterviews)
