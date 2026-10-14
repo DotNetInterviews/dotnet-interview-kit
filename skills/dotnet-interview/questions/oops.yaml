@@ -1,0 +1,13 @@
+id: OOP-017
+topic: OOP
+subtopic: inheritance
+difficulty: intermediate
+experience: 2-5 years
+question: What is the difference between virtual, override, and new in C#?
+expected_concepts:
+  - Virtual dispatch
+  - Method overriding
+  - Member hiding
+follow_ups:
+  - What happens when the method is called through a base-class reference?
+  - How does the behavior differ when the method is hidden using new?
