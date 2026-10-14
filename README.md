@@ -31,6 +31,16 @@ skills/
 
 Install the skill using a compatible AI coding assistant, then ask it to conduct an interview.
 
+To install
+```
+gh skill install  https://github.com/DotNetInterviews/dotnet-interview-kit dotnet-interview
+```
+
+To update
+```
+gh skill update dotnet-interview
+```
+
 Examples:
 
 - `Conduct a .NET interview for someone with 5 years of experience.`
