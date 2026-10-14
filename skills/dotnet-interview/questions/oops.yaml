@@ -1,35 +1,215 @@
-id: DI-001
-topic: dependency-injection
+id: OOP-001
+topic: oop
+subtopic: fundamentals
 difficulty: easy
-experience: 2-4
-question: What is dependency injection in .NET?
+experience: 0-2 years
+question: What is object-oriented programming (OOP) in C# and what are its core principles?
 concepts:
-  - IoC
-  - DI
-  - service lifetimes
+  - classes
+  - objects
+  - encapsulation
+  - inheritance
+  - polymorphism
+  - abstraction
 expected_points:
-  - Dependency inversion
-  - External dependency provisioning
-  - Loose coupling
+  - OOP organizes code around objects and classes instead of standalone procedures.
+  - The four core pillars are encapsulation, inheritance, polymorphism, and abstraction.
+  - It helps model real-world concepts and improves code reuse and maintainability.
 follow_ups:
-  - What are the three service lifetimes?
-  - Can a singleton depend on a scoped service?
-  - When would you use transient?
+  - Which OOP principle is most important in a large enterprise system and why?
+  - How does OOP help with testability and maintainability?
 common_mistakes:
-  - Confusing DI with dependency inversion
-  - Treating DI as only an ASP.NET Core feature
+  - Treating OOP as only "using classes" without understanding the principles behind it
+  - Confusing abstraction with hiding everything instead of exposing the right behavior
 
-id: OOP-017
-topic: OOP
+id: OOP-002
+topic: oop
+subtopic: class-and-object
+difficulty: easy
+experience: 0-2 years
+question: Can you explain the difference between a class and an object in C#?
+concepts:
+  - class blueprint
+  - object instance
+  - state and behavior
+expected_points:
+  - A class is a blueprint or template that defines fields, properties, and methods.
+  - An object is an instance created from that class.
+  - Objects hold state and can invoke behavior defined by the class.
+follow_ups:
+  - How many objects can you create from a single class?
+  - What is the difference between an instance field and a static field?
+common_mistakes:
+  - Saying a class is an object
+  - Forgetting that objects are runtime instances and not just type declarations
+
+id: OOP-003
+topic: oop
+subtopic: encapsulation
+difficulty: easy
+experience: 0-3 years
+question: What is encapsulation in C# and how is it implemented?
+concepts:
+  - access modifiers
+  - private state
+  - public API
+expected_points:
+  - Encapsulation bundles data and methods into a single class.
+  - It hides internal state using access modifiers such as private, protected, internal, and public.
+  - Public methods provide a controlled interface while the internal representation remains safe.
+follow_ups:
+  - Why is exposing fields directly often considered a bad design?
+  - How does encapsulation improve validation and invariants?
+common_mistakes:
+  - Making everything public without a reason
+  - Thinking encapsulation means "hiding everything" rather than protecting invariants
+
+id: OOP-004
+topic: oop
 subtopic: inheritance
+difficulty: easy
+experience: 1-3 years
+question: What is inheritance in C# and how does it work?
+concepts:
+  - base class
+  - derived class
+  - reuse
+expected_points:
+  - A derived class inherits members from a base class.
+  - It promotes code reuse and establishes an "is-a" relationship.
+  - Derived classes can extend or override behavior while keeping shared logic in the base class.
+follow_ups:
+  - When is inheritance the right choice versus composition?
+  - What happens when a base method is not virtual and a derived class tries to override it?
+common_mistakes:
+  - Using inheritance for every relationship instead of composition
+  - Forgetting that C# does not support multiple base classes
+
+id: OOP-005
+topic: oop
+subtopic: polymorphism
+difficulty: intermediate
+experience: 1-4 years
+question: What is polymorphism in C# and how is it achieved?
+concepts:
+  - method overriding
+  - method overloading
+  - virtual dispatch
+expected_points:
+  - Polymorphism allows different objects to be treated through a common interface or base type.
+  - Method overriding supports runtime polymorphism using virtual and override.
+  - Method overloading supports compile-time polymorphism by varying method signatures.
+follow_ups:
+  - What happens when a base-class reference points to a derived object?
+  - How is method hiding with new different from overriding?
+common_mistakes:
+  - Confusing overloading with overriding
+  - Assuming dynamic behavior is available without virtual methods
+
+id: OOP-006
+topic: oop
+subtopic: abstraction
+difficulty: intermediate
+experience: 1-4 years
+question: What is abstraction in C# and how is it implemented?
+concepts:
+  - abstract classes
+  - interfaces
+  - intent hiding
+expected_points:
+  - Abstraction hides implementation details and exposes only the relevant behavior.
+  - Abstract classes can provide shared implementations and require derived classes to implement abstract members.
+  - Interfaces define contracts that classes can implement without sharing inheritance.
+follow_ups:
+  - When would you choose an abstract class instead of an interface?
+  - How do interfaces help with loose coupling and testability?
+common_mistakes:
+  - Treating abstraction as the same as encapsulation
+  - Creating overly abstract designs before a real need exists
+
+id: OOP-007
+topic: oop
+subtopic: constructors-and-destructors
+difficulty: intermediate
+experience: 1-3 years
+question: What are constructors and destructors in C#?
+concepts:
+  - constructor initialization
+  - destructor cleanup
+  - garbage collection
+expected_points:
+  - Constructors initialize a new object and are called when an instance is created.
+  - They can accept parameters and enforce valid object state.
+  - Destructors are special methods used for cleanup before an object is finalized, though in .NET the garbage collector typically handles most cleanup.
+follow_ups:
+  - When would you use a constructor instead of property assignment after object creation?
+  - Why do we usually prefer IDisposable over relying on a destructor?
+common_mistakes:
+  - Assuming destructors run immediately when an object goes out of scope
+  - Forgetting that constructors should validate required state
+
+id: OOP-008
+topic: oop
+subtopic: abstract-vs-interface
 difficulty: intermediate
 experience: 2-5 years
-question: What is the difference between virtual, override, and new in C#?
-expected_concepts:
-  - Virtual dispatch
-  - Method overriding
-  - Member hiding
+question: What is the difference between an abstract class and an interface in C#?
+concepts:
+  - inheritance
+  - contracts
+  - shared implementation
+expected_points:
+  - A class can inherit from only one abstract class, but can implement multiple interfaces.
+  - Abstract classes may contain shared implementation, fields, and constructors.
+  - Interfaces define contracts; classes implement the members the interface requires.
 follow_ups:
-  - What happens when the method is called through a base-class reference?
-  - How does the behavior differ when the method is hidden using new?
+  - Which is better for a reusable base model with common logic?
+  - How do you decide between interface-based design and inheritance in a domain model?
+common_mistakes:
+  - Using interfaces for everything even when shared behavior belongs in a base class
+  - Ignoring that interfaces are not equivalent to inheritance hierarchies
+
+id: OOP-009
+topic: oop
+subtopic: this-keyword
+difficulty: easy
+experience: 0-2 years
+question: What is the purpose of the this keyword in C#?
+concepts:
+  - current instance
+  - member access
+  - constructor chaining
+expected_points:
+  - this refers to the current instance of the class.
+  - It is used to distinguish between instance members and parameters with the same name.
+  - It can also be used to call another constructor in the same class.
+follow_ups:
+  - How is this useful when constructor parameters shadow instance fields?
+  - Can this be used in static methods?
+common_mistakes:
+  - Using this in a static context where it does not exist
+  - Overusing it when the member name is already unambiguous
+
+id: OOP-010
+topic: oop
+subtopic: exception-handling
+difficulty: intermediate
+experience: 1-4 years
+question: How is exception handling implemented in C#?
+concepts:
+  - try
+  - catch
+  - finally
+  - throw
+expected_points:
+  - try contains code that may throw an exception.
+  - catch handles specific exception types and allows recovery or logging.
+  - finally runs regardless of whether an exception was thrown, commonly for cleanup.
+  - throw raises exceptions explicitly when required.
+follow_ups:
+  - Why is catching generic Exception usually a poor practice?
+  - When should cleanup code live in finally instead of in a catch block?
+common_mistakes:
+  - Catching broad exceptions and swallowing errors without logging
+  - Ignoring finally blocks for resource disposal and cleanup
 

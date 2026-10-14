@@ -1,0 +1,148 @@
+id: SQL-001
+topic: sql
+subtopic: keys
+difficulty: easy
+experience: 1-3 years
+question: What is the difference between a primary key and a unique key in SQL?
+concepts:
+  - primary key
+  - unique constraint
+  - identity and nullability
+expected_points:
+  - A primary key uniquely identifies each row and cannot be NULL.
+  - A unique key also enforces uniqueness but allows one NULL value depending on the database.
+  - A table can have only one primary key but multiple unique keys.
+follow_ups:
+  - Why is a surrogate key often used instead of a natural key?
+  - What happens when you try to insert duplicate values into a unique column?
+common_mistakes:
+  - Assuming every unique key is the same as the primary key
+  - Forgetting that primary keys are used for foreign-key relationships
+
+id: SQL-002
+topic: sql
+subtopic: deletes
+difficulty: easy
+experience: 1-3 years
+question: What is the difference between DELETE, DROP, and TRUNCATE in SQL?
+concepts:
+  - DML
+  - DDL
+  - transaction logging
+expected_points:
+  - DELETE removes rows one by one and can be filtered with a WHERE clause.
+  - TRUNCATE removes all rows quickly but cannot be filtered and resets identity values in many databases.
+  - DROP removes the table or object entirely from the schema.
+follow_ups:
+  - Which operation is safer for transactional rollback?
+  - Why is TRUNCATE usually faster than DELETE for full-table cleanup?
+common_mistakes:
+  - Using TRUNCATE when a conditional delete is needed
+  - Forgetting that DROP destroys the structure, not just the data
+
+id: SQL-003
+topic: sql
+subtopic: procedures-vs-views
+difficulty: intermediate
+experience: 1-4 years
+question: What is the difference between a stored procedure, a view, and a function in SQL?
+concepts:
+  - stored procedures
+  - views
+  - scalar and table functions
+expected_points:
+  - A stored procedure is executable logic for operations and data processing.
+  - A view is a saved query that looks like a virtual table.
+  - A function returns a value or table and is typically used in expressions or queries.
+follow_ups:
+  - When would you prefer a view over a stored procedure?
+  - Can a function modify data?
+common_mistakes:
+  - Treating views as tables that store data
+  - Forgetting that functions have different rules across SQL engines
+
+id: SQL-004
+topic: sql
+subtopic: set-operators
+difficulty: intermediate
+experience: 1-4 years
+question: What is the difference between UNION and UNION ALL in SQL?
+concepts:
+  - set operations
+  - result set merging
+  - deduplication
+expected_points:
+  - UNION combines result sets and removes duplicates.
+  - UNION ALL combines result sets without removing duplicates and is usually faster.
+  - Both require matching columns and compatible data types.
+follow_ups:
+  - When is UNION ALL the better choice for performance?
+  - What happens if the column counts do not match?
+common_mistakes:
+  - Assuming UNION ALL is always correct without understanding duplicate semantics
+  - Ignoring that UNION sorts or compares rows to remove duplicates
+
+id: SQL-005
+topic: sql
+subtopic: indexing
+difficulty: intermediate
+experience: 1-5 years
+question: What is the purpose of indexing in SQL and when should you use it?
+concepts:
+  - indexes
+  - B-tree
+  - read vs write trade-offs
+expected_points:
+  - Indexes speed up lookups on columns used in filters, joins, and sorting.
+  - They improve read performance but add overhead on writes and storage.
+  - Poor indexes can hurt performance more than they help.
+follow_ups:
+  - Why are composite indexes often useful for multi-column filters?
+  - What is the difference between clustered and nonclustered indexes?
+common_mistakes:
+  - Indexing every column without measuring benefit
+  - Ignoring the cost of maintaining large indexes during inserts and updates
+
+id: SQL-006
+topic: sql
+subtopic: deadlocks
+difficulty: intermediate
+experience: 2-5 years
+question: What is a deadlock in SQL and how can you avoid it?
+concepts:
+  - locking
+  - transaction isolation
+  - resource ordering
+expected_points:
+  - A deadlock occurs when two transactions wait on each other to release locks.
+  - Preventing deadlocks requires consistent lock ordering, short transactions, and careful access patterns.
+  - Database engines may detect deadlocks and abort one transaction automatically.
+follow_ups:
+  - What is the impact of long-running transactions on deadlock likelihood?
+  - How do you diagnose a deadlock from SQL Server logs or execution plans?
+common_mistakes:
+  - Assuming all blocking is a deadlock
+  - Holding locks longer than necessary during business logic
+
+id: SQL-007
+topic: sql
+subtopic: acid
+difficulty: intermediate
+experience: 2-5 years
+question: What are ACID properties and why are they important in relational databases?
+concepts:
+  - atomicity
+  - consistency
+  - isolation
+  - durability
+expected_points:
+  - Atomicity ensures all parts of a transaction succeed or none do.
+  - Consistency ensures data remains valid according to rules and constraints.
+  - Isolation prevents concurrent transactions from seeing inconsistent intermediate states.
+  - Durability ensures committed changes survive system failures.
+follow_ups:
+  - How do isolation levels impact concurrency and performance?
+  - What trade-off exists between strong isolation and throughput?
+common_mistakes:
+  - Treating ACID as optional for every workload
+  - Ignoring isolation levels when designing concurrency-sensitive systems

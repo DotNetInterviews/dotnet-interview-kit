@@ -1,0 +1,125 @@
+id: CSH-001
+topic: csharp
+subtopic: types
+difficulty: easy
+experience: 0-2 years
+question: What is the difference between a value type and a reference type in C#?
+concepts:
+  - value types
+  - reference types
+  - stack vs heap
+expected_points:
+  - Value types store data directly and usually live on the stack or inline in structs.
+  - Reference types store a reference to the object on the heap.
+  - Boxing and unboxing happen when value types are converted to object.
+follow_ups:
+  - What happens when you copy a struct versus a class instance?
+  - Why are strings treated as reference types even though they feel immutable and value-like?
+common_mistakes:
+  - Assuming all structs are allocated on the stack
+  - Forgetting that reference types are still copied by reference, not by value
+
+id: CSH-002
+topic: csharp
+subtopic: modifiers
+difficulty: easy
+experience: 0-3 years
+question: What is the difference between const, readonly, and static in C#?
+concepts:
+  - constants
+  - readonly fields
+  - static members
+expected_points:
+  - const is compile-time constant and must be assigned at declaration.
+  - readonly can be assigned in declaration or constructor and is instance-specific unless static.
+  - static members belong to the type and are shared across instances.
+follow_ups:
+  - When would you prefer readonly over const?
+  - Can a static field be initialized per instance?
+common_mistakes:
+  - Using const for values that may change at runtime
+  - Treating static as instance-specific state
+
+id: CSH-003
+topic: csharp
+subtopic: polymorphism
+difficulty: intermediate
+experience: 2-5 years
+question: What is the difference between method overloading and method overriding in C#?
+concepts:
+  - compile-time polymorphism
+  - runtime polymorphism
+  - virtual dispatch
+expected_points:
+  - Overloading changes the method signature within the same class.
+  - Overriding changes behavior in a derived class using virtual and override.
+  - Overridden methods use runtime dispatch through a base reference.
+follow_ups:
+  - What happens when a base-class reference points to a derived instance?
+  - How does the new keyword differ from override?
+common_mistakes:
+  - Confusing overload resolution with inheritance-based polymorphism
+  - Forgetting that override methods require the base method to be virtual or abstract
+
+id: CSH-004
+topic: csharp
+subtopic: generics
+difficulty: intermediate
+experience: 1-4 years
+question: What are generics in C# and why are they useful?
+concepts:
+  - generic types
+  - type safety
+  - performance
+expected_points:
+  - Generics allow you to write type-safe reusable code.
+  - They avoid boxing for value types and reduce casting errors.
+  - Common examples include List<T>, Dictionary<TKey, TValue>, and generic repositories.
+follow_ups:
+  - Why are generic collections typically faster than non-generic collections?
+  - What is the difference between a generic type and using object?
+common_mistakes:
+  - Using object as a generic fallback instead of T
+  - Ignoring constraints that can enforce business or type rules
+
+id: CSH-005
+topic: solid
+subtopic: single-responsibility-principle
+difficulty: intermediate
+experience: 1-5 years
+question: Can you explain the Single Responsibility Principle (SRP) in C#?
+concepts:
+  - cohesion
+  - separation of concerns
+  - maintainability
+expected_points:
+  - A class should have one reason to change.
+  - It should encapsulate one responsibility or business concern.
+  - SRP reduces coupling and makes code easier to test.
+follow_ups:
+  - How would you refactor a class that does both validation and persistence?
+  - When is a class too small or too large for SRP?
+common_mistakes:
+  - Treating SRP as "one method per class"
+  - Ignoring the business reason behind a class change
+
+id: CSH-006
+topic: solid
+subtopic: open-closed-principle
+difficulty: intermediate
+experience: 2-5 years
+question: What is the Open/Closed Principle (OCP) and how does it guide design?
+concepts:
+  - extensibility
+  - abstraction
+  - maintainability
+expected_points:
+  - Classes should be open for extension but closed for modification.
+  - You can add new behavior through abstractions, interfaces, or inheritance.
+  - This reduces the risk of breaking existing code.
+follow_ups:
+  - How would you design a payment processor that supports multiple providers?
+  - What is the trade-off of over-abstracting simple code?
+common_mistakes:
+  - Modifying existing logic to add each new feature
+  - Building abstraction layers without a real extension point

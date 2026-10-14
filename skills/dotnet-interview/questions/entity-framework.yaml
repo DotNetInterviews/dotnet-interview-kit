@@ -1,0 +1,125 @@
+id: EF-001
+topic: entity-framework
+subtopic: orm
+difficulty: easy
+experience: 1-3 years
+question: What is Entity Framework and why do developers use it?
+concepts:
+  - ORM
+  - LINQ
+  - database abstraction
+expected_points:
+  - Entity Framework maps .NET objects to relational database tables.
+  - It reduces repetitive SQL and object-mapping code.
+  - Common workflows include querying, change tracking, and migrations.
+follow_ups:
+  - How is EF different from ADO.NET?
+  - When would you still choose raw SQL instead of EF?
+common_mistakes:
+  - Assuming EF replaces all SQL knowledge
+  - Neglecting query optimization and database design fundamentals
+
+id: EF-002
+topic: entity-framework
+subtopic: approaches
+difficulty: intermediate
+experience: 1-4 years
+question: What are the differences between Code First, Model First, and Database First in Entity Framework?
+concepts:
+  - code-first
+  - database-first
+  - model-first
+expected_points:
+  - Code First starts from C# entities and generates the database schema.
+  - Database First starts from an existing database and generates models.
+  - Model First starts with an EDMX model and then generates both schema and code.
+follow_ups:
+  - Which approach is most common in modern .NET applications?
+  - How do migrations fit into a Code First workflow?
+common_mistakes:
+  - Treating all approaches as interchangeable in every project
+  - Ignoring schema drift between code and database
+
+id: EF-003
+topic: entity-framework
+subtopic: dbcontext
+difficulty: easy
+experience: 1-3 years
+question: What is DbContext in Entity Framework?
+concepts:
+  - DbContext
+  - unit of work
+  - change tracking
+expected_points:
+  - DbContext is the main API for interacting with the database.
+  - It tracks entity state and coordinates SaveChanges.
+  - A DbContext instance typically represents a unit of work for a request or transaction.
+follow_ups:
+  - Why is disposing a DbContext important?
+  - How does EF know which entities changed?
+common_mistakes:
+  - Keeping a long-lived DbContext for the entire application
+  - Missing transaction boundaries when multiple operations must succeed together
+
+id: EF-004
+topic: entity-framework
+subtopic: dbset
+difficulty: easy
+experience: 1-3 years
+question: What is DbSet and how is it used in EF Core?
+concepts:
+  - DbSet
+  - CRUD operations
+  - entity sets
+expected_points:
+  - DbSet represents a collection of entities of a given type.
+  - It exposes LINQ queries, Add, Remove, and update operations.
+  - EF translates LINQ to SQL behind the scenes.
+follow_ups:
+  - What is the difference between a DbSet and a List<T>?
+  - How does EF create SQL from LINQ queries?
+common_mistakes:
+  - Using DbSet as a plain in-memory collection without understanding query translation
+  - Forgetting that SaveChanges is what persists changes
+
+id: EF-005
+topic: entity-framework
+subtopic: linq
+difficulty: intermediate
+experience: 1-5 years
+question: What are the advantages of using LINQ with Entity Framework?
+concepts:
+  - LINQ to Entities
+  - query composition
+  - type safety
+expected_points:
+  - LINQ provides readable, strongly typed queries.
+  - Query composition leads to maintainable code and less stringly-typed SQL.
+  - EF translates LINQ into database queries instead of loading everything in memory.
+follow_ups:
+  - What is the cost of enumerating too much data?
+  - How do projection queries improve performance?
+common_mistakes:
+  - Loading large collections into memory before filtering
+  - Writing LINQ that forces multiple database round trips
+
+id: EF-006
+topic: entity-framework
+subtopic: performance
+difficulty: intermediate
+experience: 2-5 years
+question: How do you avoid N+1 query problems in EF Core?
+concepts:
+  - query performance
+  - eager loading
+  - projection
+expected_points:
+  - N+1 occurs when one query loads parent rows and a separate query loads child rows for each parent.
+  - You can use Include, projection, batching, or explicit loading to reduce round trips.
+  - The best fix depends on the actual access pattern and data size.
+follow_ups:
+  - What is the difference between eager loading and lazy loading?
+  - When does projection become a better option than Include?
+common_mistakes:
+  - Using lazy loading blindly without considering query count and performance
+  - Forgetting to measure before optimizing

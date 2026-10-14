@@ -1,0 +1,149 @@
+id: ASP-001
+topic: aspnet-core
+subtopic: dependency-injection
+difficulty: easy
+experience: 1-3 years
+question: How does ASP.NET Core handle dependency injection?
+concepts:
+  - inversion of control
+  - service registration
+  - constructor injection
+expected_points:
+  - ASP.NET Core builds a service container from registered services.
+  - Services are resolved through constructor injection by the framework.
+  - Registration is done in Program.cs using AddSingleton, AddScoped, or AddTransient.
+follow_ups:
+  - What is the difference between singleton, scoped, and transient?
+  - When would you inject dependencies into a controller versus a service class?
+common_mistakes:
+  - Registering a service without the correct lifetime
+  - Forgetting that controllers and services should depend on abstractions
+
+id: ASP-002
+topic: aspnet-core
+subtopic: lifetimes
+difficulty: easy
+experience: 1-3 years
+question: What is the difference between singleton, scoped, and transient lifetimes in ASP.NET Core?
+concepts:
+  - service lifetimes
+  - scope
+  - dependency graph
+expected_points:
+  - Singleton creates one instance for the entire application lifetime.
+  - Scoped creates one instance per request or scope.
+  - Transient creates a new instance every time it is resolved.
+follow_ups:
+  - Can a singleton depend on a scoped service?
+  - Why is a stateless service a good candidate for singleton registration?
+common_mistakes:
+  - Using singleton for services that hold request-specific state
+  - Mixing scoped and singleton dependencies in a way that causes runtime issues
+
+id: ASP-003
+topic: aspnet-core
+subtopic: middleware
+difficulty: intermediate
+experience: 1-4 years
+question: What is middleware in ASP.NET Core and how does it fit into the request pipeline?
+concepts:
+  - request pipeline
+  - middleware ordering
+  - cross-cutting concerns
+expected_points:
+  - Middleware components execute in order as requests move through the pipeline.
+  - They can process requests, short-circuit them, or pass them to the next component.
+  - Common use cases include logging, authentication, exception handling, and routing.
+follow_ups:
+  - What is the difference between middleware and filters?
+  - Why does middleware order matter for auth and exception handling?
+common_mistakes:
+  - Assuming middleware runs only after the controller action executes
+  - Forgetting to call next() and accidentally short-circuiting the pipeline
+
+id: ASP-004
+topic: aspnet-core
+subtopic: rest-api
+difficulty: intermediate
+experience: 1-5 years
+question: What is the difference between REST and SOAP?
+concepts:
+  - HTTP
+  - resource-oriented design
+  - message contracts
+expected_points:
+  - REST is resource-centric and typically uses HTTP verbs and JSON.
+  - SOAP is an XML-based protocol with a stricter contract and formal standards.
+  - REST is usually simpler and more widely used in web services.
+follow_ups:
+  - Which is more appropriate for public APIs and why?
+  - How do REST and SOAP differ in caching and interoperability?
+common_mistakes:
+  - Treating REST as a protocol instead of an architectural style
+  - Assuming SOAP is always more secure without considering the endpoint and transport security
+
+id: ASP-005
+topic: aspnet-core
+subtopic: http
+difficulty: intermediate
+experience: 1-4 years
+question: What are the common HTTP methods and how do they relate to RESTful resources?
+concepts:
+  - GET
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+expected_points:
+  - GET retrieves a resource and should be safe and idempotent.
+  - POST creates new resources and is not idempotent.
+  - PUT replaces a resource and PATCH applies partial updates.
+follow_ups:
+  - When would you choose PATCH over PUT?
+  - How does idempotency matter for retry safety?
+common_mistakes:
+  - Using GET for state-changing operations
+  - Treating PUT and PATCH as interchangeable in all scenarios
+
+id: ASP-006
+topic: aspnet-core
+subtopic: security
+difficulty: intermediate
+experience: 2-5 years
+question: What is the difference between authentication and authorization in an API?
+concepts:
+  - authentication
+  - authorization
+  - JWT
+  - claims
+expected_points:
+  - Authentication answers who the caller is.
+  - Authorization answers whether the caller is allowed to do something.
+  - JWT, cookies, and bearer tokens are common authentication mechanisms.
+follow_ups:
+  - How would you enforce per-role and per-resource authorization?
+  - What is the role of policies and claims in ASP.NET Core?
+common_mistakes:
+  - Confusing authentication with authorization
+  - Forgetting to validate tokens and roles before authorizing actions
+
+id: ASP-007
+topic: aspnet-core
+subtopic: cors
+difficulty: intermediate
+experience: 1-4 years
+question: What is CORS and why is it important in web APIs?
+concepts:
+  - cross-origin requests
+  - browser security
+  - Access-Control-Allow-Origin
+expected_points:
+  - CORS allows or blocks browser access to resources from different origins.
+  - It is enforced by the browser, not the server alone.
+  - Allowlist-based configuration prevents unintended cross-origin access.
+follow_ups:
+  - What headers are commonly involved in a CORS decision?
+  - When would you allow credentials in a CORS policy?
+common_mistakes:
+  - Using wildcards without considering credentialed requests
+  - Assuming CORS is a replacement for API authentication
