@@ -1,3 +1,24 @@
+id: DI-001
+topic: dependency-injection
+difficulty: easy
+experience: 2-4
+question: What is dependency injection in .NET?
+concepts:
+  - IoC
+  - DI
+  - service lifetimes
+expected_points:
+  - Dependency inversion
+  - External dependency provisioning
+  - Loose coupling
+follow_ups:
+  - What are the three service lifetimes?
+  - Can a singleton depend on a scoped service?
+  - When would you use transient?
+common_mistakes:
+  - Confusing DI with dependency inversion
+  - Treating DI as only an ASP.NET Core feature
+
 id: OOP-017
 topic: OOP
 subtopic: inheritance
@@ -11,3 +32,4 @@ expected_concepts:
 follow_ups:
   - What happens when the method is called through a base-class reference?
   - How does the behavior differ when the method is hidden using new?
+
